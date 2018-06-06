@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width">
+		  <script src="https://maps-api-ssl.google.com/maps/api/js?v=3&sensor=false&libraries=geometry" type="text/javascript"></script>
+            <script type="text/javascript" src="cordova.js"></script>
+            <script type="text/javascript">
+            document.addEventListener("deviceready", function() {
+                  var div = document.getElementById("mapbox");
+                  var data = [
+					  {
+						  //'poisition': new plugin.google.maps.LatLng(32.0761551, -81.087371),
+						  'lat': 32.0761551, 
+						  'lng': -82.087371,
+						  'title': "test1",
+						  'snippet': "1 works"
+					  },
+					  {
+						  //'poisition': new plugin.google.maps.LatLng(32.0761421, -81.088351),
+						  'lat': 33.0761421, 
+						  'lng': -81.088351,
+						  'title': "test2",
+						  'snippet': "2 works"
+					  },
+					  {
+						  //'poisition': new plugin.google.maps.LatLng(32.0760111, -81.101112),
+						  'lat': 33.0760111, 
+						  'lng': -82.101112,
+						  'title': "test3",
+						  'snippet': "3 works"
+					  },
+					  {
+						  //'poisition': new plugin.google.maps.LatLng(32.0752611, -81.088361),
+						  'lat': 31.0752611, 
+						  'lng': -80.088361,
+						  'title': "test4",
+						  'snippet': "4 works"
+					  }
+                  ];
+				  var centerpoint = new plugin.google.maps.LatLng(32.9469, -83.298);
+				  const TEST = new plugin.google.maps.LatLng(data[0].lat,data[0].lng);
+                  //alert("Variables Done");
+				  // Create a Google Maps native view under the map_canvas div.
+                  var map = plugin.google.maps.Map.getMap(div,{
+					  'mapType':plugin.google.maps.MapTypeId.ROADMAP,
+					  'controls':{
+						  'compass':true,
+						  'myLocationButton':false,
+						  'myLocation':false,
+						  'zoom':true
+					  },
+					  'gestures':{
+						  'scroll':true,
+						  'zoom':true,
+						  'rotate':true,
+						  'tilt':true
+					  },
+					  'camera':{
+						  'latLng':centerpoint,
+							  //lat:32.076176,
+							  //lng:-81.088371
+						 
+						  'zoom': 6
+					  }
+                  } );
+                  
+                  // If you click the button, do something...
+                  //var button = document.getElementById("button");
+               
+                  //button.addEventListener("click", function() {
+			  		
+					/*var marker = map.addMarker({
+						'position':{lng:-81.08737, lat:32.076155},
+						title:"test1",
+						snippet:"This works"
+					});
+					marker.showInfoWindow();*/
+                      // Move to the position with animation
+                      
+					  
+					  
+					  /*var map = plugin.google.maps.Map.getMap(div, {
+						  'camera': {
+							  'latLng': TEST,
+							  'zoom': 6
+						  }
+					  });*/
+					  map.addEventListener(plugin.google.maps.event.MAP_READY, function() {
+						  
+		                  
+						  for(var i = 0; i<data.length; i++){
+							  var locObj = new plugin.google.maps.LatLng(data[i].lat,data[i].lng);
+						  	map.addMarker({
+								'icon':{
+									'url': 'img/marker_green.png',
+									'size':{
+										width:42,
+										height:51
+									}
+								},
+						  		'position': locObj,
+								'title': data[i].title,
+								'snippet': data[i].snippet
+						  	}, function(marker){
+						  		
+								//marker.showInfoWindow();
+						  	});
+						  }
+					  });
+					  /*map.setClickable(true);
+					  map.on(plugin.google.maps.event.MAP_CLICK, function(){
+					  	map.animateCameraZoomIn();
+						alert("HERE I AM");
+					  });
+					  */
+					  /*
+                      // Add a maker
+                      var bounds = [];
+					  
+					  var marks = data.map(function(options) {
+						  bounds.push(POI.position);
+						  alert("in marker");
+						  return map.addMarker(options);
+                       });
+					   //alert("add marker");
+                      // Show the info window
+					   map.moveCamera({
+						   //alert("camera adjust");
+						   target: bounds
+					   }, function() {
+						   marks[marks.length - 1].showInfoWindow();
+					   });*/
+                      //});
+				  }, false);
+				            
+                </script>
+            <style type="text/css">
+                #mapbox { /* Must bigger size than 100x100 pixels */
+                    width: 100%;
+                    height: 500px;
+                }
+            button {
+                padding: .5em;
+                margin: .5em;
+            }
+            </style>
+            </head>
+    <body>
+        <h1>Cordova Map Test!</h1>
+		<button id="button">Click me!</button>
+        <div class="map" id="mapbox">
+            
+        </div>
+    </body>
+</html>

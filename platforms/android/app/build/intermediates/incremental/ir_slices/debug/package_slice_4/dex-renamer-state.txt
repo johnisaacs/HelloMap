@@ -1,0 +1,4 @@
+#Tue Jun 05 16:38:48 EDT 2018
+base.0=/Users/isaacsjo/Documents/HelloMap/platforms/android/app/build/intermediates/transforms/dexMerger/debug/4
+path.0=classes.dex
+renamed.0=classes.dex

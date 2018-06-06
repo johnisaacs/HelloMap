@@ -1,0 +1,34 @@
+{
+  "name": "org.myapp.map",
+  "displayName": "HelloMap",
+  "version": "1.0.0",
+  "description": "A sample Apache Cordova application that responds to the deviceready event.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Apache Cordova Team",
+  "license": "Apache-2.0",
+  "dependencies": {
+    "cordova-android": "^7.0.0",
+    "cordova-ios": "^4.5.4",
+    "cordova-plugin-googlemaps": "^2.3.5",
+    "cordova-plugin-googlemaps-sdk": "git+https://github.com/mapsplugin/cordova-plugin-googlemaps-sdk.git#2.7.0",
+    "cordova-plugin-whitelist": "^1.3.3",
+    "minimist": "^1.2.0",
+    "xml2js": "^0.4.19"
+  },
+  "cordova": {
+    "plugins": {
+      "cordova-plugin-googlemaps": {
+        "API_KEY_FOR_ANDROID": "AIzaSyC6_leXQcwPVwOpOFCWHWk8EaTBYwlcbos",
+        "API_KEY_FOR_IOS": "AIzaSyBK34RBwo-s29MfBXWwd6S3vmH5SK36P8U"
+      },
+      "cordova-plugin-whitelist": {}
+    },
+    "platforms": [
+      "android",
+      "ios"
+    ]
+  }
+}

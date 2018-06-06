@@ -1,0 +1,21 @@
+{
+  "prepare_queue": {
+    "installed": [],
+    "uninstalled": []
+  },
+  "config_munge": {
+    "files": {}
+  },
+  "installed_plugins": {
+    "cordova-plugin-googlemaps": {
+      "API_KEY_FOR_ANDROID": "AIzaSyC6_leXQcwPVwOpOFCWHWk8EaTBYwlcbos",
+      "PLAY_SERVICES_VERSION": "15.0.1",
+      "ANDROID_SUPPORT_V4_VERSION": "26.1.0",
+      "PACKAGE_NAME": "org.myapp.map"
+    },
+    "cordova-plugin-whitelist": {
+      "PACKAGE_NAME": "org.myapp.map"
+    }
+  },
+  "dependent_plugins": {}
+}
